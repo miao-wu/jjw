@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<meta name="keywords" content="武汉楼市，武汉新房" />
+		<meta name="description" content="了解最全面的武汉二手房价格、武汉房价涨幅、武汉二手房成交，首选武汉吉家网！" />
+		<title>吉家二楼</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="css/animation.css">
+		<script type="text/javascript" src="js/flexible.min.js"></script>
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/preload.js"></script>
+		<script type="text/javascript" src="js/moblieResize.js"></script>		
+		<script src="js/createjs-2015.11.26.min.js"></script>
+		<script src="js/canvasAnimate.js"></script>
+		<script>
+			var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+
+			function init() {
+				canvas = document.getElementById("canvas");
+				anim_container = document.getElementById("animation_container");
+				dom_overlay_container = document.getElementById("dom_overlay_container");
+				images = images || {};
+				var loader = new createjs.LoadQueue(false);
+				loader.addEventListener("fileload", handleFileLoad);
+				loader.addEventListener("complete", handleComplete);
+				loader.loadManifest(lib.properties.manifest);
+			}
+
+			function handleFileLoad(evt) {
+				if(evt.item.type == "image") {
+					images[evt.item.id] = evt.result;
+				}
+			}
+
+			function handleComplete(evt) {
+				//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+				var queue = evt.target;
+				var ssMetadata = lib.ssMetadata;
+				for(i = 0; i < ssMetadata.length; i++) {
+					ss[ssMetadata[i].name] = new createjs.SpriteSheet({
+						"images": [queue.getResult(ssMetadata[i].name)],
+						"frames": ssMetadata[i].frames
+					})
+				}
+				exportRoot = new lib.canvasWrap();
+				stage = new createjs.Stage(canvas);
+				stage.addChild(exportRoot);
+				//Registers the "tick" event listener.
+				fnStartAnimation = function() {
+					createjs.Ticker.setFPS(lib.properties.fps);
+					createjs.Ticker.addEventListener("tick", stage);
+				}
+				//Code to support hidpi screens and responsive scaling.
+				function makeResponsive(isResp, respDim, isScale, scaleType) {
+					var lastW, lastH, lastS = 1;
+					window.addEventListener('resize', resizeCanvas);
+					resizeCanvas();
+
+					function resizeCanvas() {
+						var w = lib.properties.width,
+							h = lib.properties.height;
+						var iw = window.innerWidth,
+							ih = window.innerHeight;
+						var pRatio = window.devicePixelRatio || 1,
+							xRatio = iw / w,
+							yRatio = ih / h,
+							sRatio = 1;
+						if(isResp) {
+							if((respDim == 'width' && lastW == iw) || (respDim == 'height' && lastH == ih)) {
+								sRatio = lastS;
+							} else if(!isScale) {
+								if(iw < w || ih < h)
+									sRatio = Math.min(xRatio, yRatio);
+							} else if(scaleType == 1) {
+								sRatio = Math.min(xRatio, yRatio);
+							} else if(scaleType == 2) {
+								sRatio = Math.max(xRatio, yRatio);
+							}
+						}
+						canvas.width = w * pRatio * sRatio;
+						canvas.height = h * pRatio * sRatio;
+						canvas.style.width = dom_overlay_container.style.width = anim_container.style.width = w * sRatio / 100 + 'rem';
+						canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h * sRatio / 100 + 'rem';
+						stage.scaleX = pRatio * sRatio;
+						stage.scaleY = pRatio * sRatio;
+						lastW = iw;
+						lastH = ih;
+						lastS = sRatio;
+					}
+				}
+				makeResponsive(false, 'both', false, 1);
+				// fnStartAnimation();
+			};
+		</script>
+		<!-- Copyright 2015-2017 GrowingIO, Inc. More info available at http://www.growingio.com
+		<script type='text/javascript'>
+			! function(e, t, n, g, i) {
+				e[i] = e[i] || function() {
+					(e[i].q = e[i].q || []).push(arguments)
+				}, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+			}(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+			gio('init', 'abaf1f9496f7acef', {});
+		
+			//custom page code begin here
+			//custom page code end here
+		
+			gio('send');
+		</script>
+		End GrowingIO Analytics code version: 2.1 -->
+	</head>
+
+	<body onload="init();" style="margin:0px;">
+		<div id="container">
+			<div id="canvasWrapBox">
+				<div id="animation_container">
+					<canvas id="canvas" width="750" height="1206" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+					<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:750px; height:1206px; position: absolute; left: 0px; top: 0px; display: block;">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="loadingWrap">
+			<div class="loading">
+				<img src="img/jjw_logo_w.png" alt="img">
+				<div class="loadwrap">
+					<div class="load">
+						<div class="loadGroup"></div>
+					</div>
+					<div class="loadText">
+						<p>0%</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="restartWrap">
+			<div class="restart">
+				<img src="img/jjw_logo_w.png" alt="img" class="restartLogo">
+				<div class="restartBtn">再看一次</div>
+			</div>
+		</div>
+		<script>
+			var imgs = [
+						"img/jjw_logo_w.png",
+					    "img/background2x.png", 
+					    "img/cor.png",
+					    "img/light2x.png",
+					    "img/mobile_img2x.png",
+					    "img/text_img012x.png",
+					    "img/text_img022x.png",
+					    "img/text_img032x.png",
+					    "img/text_img042x.png",
+					    "img/text_img052x.png",
+					    "img/text_img062x.png",
+					    "img/text_img072x.png",
+					    "img/train.png",
+					    "img/window.png",
+					    "img/women2x.png",
+					    "img/yellow_light2x.png"
+					];
+			var index = 0,
+			    len = imgs.length,
+			    progressInner = $(".loadGroup"),
+			    progressTxt = $('.loadText p');
+			//图片预加载
+			$.preload(imgs, {
+			    minTimer: 3000,
+			    //每加载完一张执行的方法
+			    each: function (count) {
+			        var percent = Math.round((count+1) / len * 100) + '%';
+			        progressInner.css("width",percent);
+			        progressTxt.html(percent);
+			    },
+			    // 加载完所有的图片资源执行的方法
+			    end: function () {
+			    	$('.loadingWrap').hide();
+			    	fnStartAnimation();
+			    	
+			    	setTimeout(function(){
+						//lastPage show
+						$('.restartWrap').animate({
+							opacity: 1},
+							5000, function() {
+							$('.restartBtn').addClass('bottomIn');
+			        			$('.restart img').addClass('topIn');
+						});
+				    },25000);	
+			    }
+			});
+		</script>
+	</body>
+
+</html>

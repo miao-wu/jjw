@@ -1,0 +1,23 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body{background-color: #030113ff;}
+#container{-webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+        box-sizing: border-box;width: 7.5rem;margin: 0 auto;position: relative;background-color: #080f21ff;}
+#canvasWrapBox{position: absolute;}
+
+.loadingWrap{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: #030113ff;z-index: 30;}
+.loading{width: 2.33rem;margin: 0 auto;}
+.load{border: 0.01rem solid #fff;padding: 0.06rem;border-radius: 0.08rem;}
+.loadwrap{margin-top: 0.2rem;}
+.loadGroup{height: 0.04rem;background-color: #fff;border-radius: 0.02rem;}
+.loadText p{font-size: 0.26rem;text-align: center;color: #fff;}
+
+.restartWrap{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: #030113ff;z-index: 20;opacity: 0;}
+.restart{width: 2.33rem;margin: 0 auto;}
+.restartLogo{opacity: 0;}
+.restartBtn{font-size: 0.32rem;color: #fff;text-align: center;font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;line-height: 0.6rem;font-weight: bold;border: 0.01rem solid #fff;border-radius: 0.1rem;margin-top: 0.4rem;opacity: 0;}
