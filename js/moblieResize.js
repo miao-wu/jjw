@@ -9,7 +9,8 @@ $(document).ready(function() {
 	    $rsY = ($winHeight-$restartH)/2,
 	    $ladX = ($winWidth-$loadingW)/2,
 	    $ladY = ($winHeight-$loadingH)/2,
-	    $canT = ($winHeight-$('#canvasWrapBox').height())/2;
+	    $canT = ($winHeight-($winWidth/750*1206))/2;
+	    console.log($canT);
 	$('.restart').css({
 		position: 'absolute',
 		top: $rsY,
