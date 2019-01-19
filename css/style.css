@@ -18,6 +18,7 @@ body{background-color: #030113ff;}
 .loadText p{font-size: 0.26rem;text-align: center;color: #fff;}
 
 .restartWrap{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: #030113ff;z-index: 20;opacity: 0;}
-.restart{width: 2.33rem;margin: 0 auto;}
+.restart{width: 6.44rem;margin: 0 auto;}
 .restartLogo{opacity: 0;}
-.restartBtn{font-size: 0.32rem;color: #fff;text-align: center;font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;line-height: 0.6rem;font-weight: bold;border: 0.01rem solid #fff;border-radius: 0.1rem;margin-top: 0.4rem;opacity: 0;}
+.restartBtn{width: 50%;margin: 0 auto;background-color: #e32815;margin-top: 0.4rem;opacity: 0;padding: 0.1rem;}
+.restartBtn p{font-size: 0.32rem;color: #e4dd19;text-align: center;font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;line-height: 0.6rem;border: 0.01rem solid #e4dd19;}

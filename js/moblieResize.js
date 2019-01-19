@@ -40,11 +40,7 @@ $(document).ready(function() {
 	stoptouchmove();
 
 	$('.restartBtn').on('click', function() {
-		$('.restartWrap').animate({
-			opacity: 0},
-			10, function() {
-				location.reload();
-			    });
+		location.reload();
 	});
 
 });
