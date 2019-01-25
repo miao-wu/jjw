@@ -100,7 +100,7 @@
 				// fnStartAnimation();
 			};
 		</script>
-		<!-- Copyright 2015-2017 GrowingIO, Inc. More info available at http://www.growingio.com
+		<!-- Copyright 2015-2017 GrowingIO, Inc. More info available at http://www.growingio.com -->
 		<script type='text/javascript'>
 			! function(e, t, n, g, i) {
 				e[i] = e[i] || function() {
@@ -114,7 +114,7 @@
 		
 			gio('send');
 		</script>
-		End GrowingIO Analytics code version: 2.1 -->
+		<!-- End GrowingIO Analytics code version: 2.1 -->
 	</head>
 
 	<body onload="init();" style="margin:0px;">
@@ -146,13 +146,15 @@
 				<div class="restartBtn"><p>再看一次</p></div>
 			</div>
 		</div>
+		<audio src="audio/audio03.mp3" id="audio"></audio>
 		<script>
 			var imgs = [
+						"audio/audio02.mp3",
 						"img/jjw_logo_w.png",
 					    "img/background2x.png", 
 					    "img/cor.png",
 					    "img/light2x.png",
-					    "img/mobile_img2x.png",
+					    "img/mobile_img_22x.png",
 					    "img/text_img012x.png",
 					    "img/text_img022x.png",
 					    "img/text_img032x.png",
@@ -162,7 +164,7 @@
 					    "img/text_img072x.png",
 					    "img/train.png",
 					    "img/window.png",
-					    "img/women2x.png",
+					    "img/gril.png",
 					    "img/yellow_light2x.png",
 					    "img/lastImg.png"
 
@@ -182,18 +184,17 @@
 			    },
 			    // 加载完所有的图片资源执行的方法
 			    end: function () {
-			    	$('.loadingWrap').hide();
-			    	fnStartAnimation();
-			    	
+			    	$('.loadingWrap').fadeOut();
+			    	$('#audio').attr({
+			    		autoplay: 'autoplay',
+			    	});
+			    	fnStartAnimation();		    	
 			    	setTimeout(function(){
 						//lastPage show
-						$('.restartWrap').animate({
-							opacity: 1},
-							5000, function() {
-							$('.restartBtn').addClass('bottomIn');
-			        			$('.restart img').addClass('topIn');
-						});
-				    },25000);	
+						$('.restartWrap').fadeIn(4000);
+						$('.restartBtn').delay(7000).addClass('bottomIn');
+	        			$('.restart img').delay(7000).addClass('topIn');
+				    },36000);	
 			    }
 			});
 		</script>

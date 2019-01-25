@@ -10,7 +10,6 @@ $(document).ready(function() {
 	    $ladX = ($winWidth-$loadingW)/2,
 	    $ladY = ($winHeight-$loadingH)/2,
 	    $canT = ($winHeight-($winWidth/750*1206))/2;
-	    console.log($canT);
 	$('.restart').css({
 		position: 'absolute',
 		top: $rsY,
@@ -27,11 +26,12 @@ $(document).ready(function() {
 	});
     if ($canT >= 0) {
 		$('#canvasWrapBox').css({
+			position: 'absolute',
 			top: $canT
 		});
     };
+    $('.restartWrap').fadeOut();
 	
-
 	var tmv=function(e){e.preventDefault();};
 	function stoptouchmove(){
 	        document.body.style.overflow='hidden';       

@@ -8,7 +8,6 @@ body{background-color: #030113ff;}
 #container{-webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
         box-sizing: border-box;width: 7.5rem;margin: 0 auto;position: relative;background-color: #080f21ff;}
-#canvasWrapBox{position: absolute;}
 
 .loadingWrap{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: #030113ff;z-index: 30;}
 .loading{width: 2.33rem;margin: 0 auto;}
@@ -17,7 +16,7 @@ body{background-color: #030113ff;}
 .loadGroup{height: 0.04rem;background-color: #fff;border-radius: 0.02rem;}
 .loadText p{font-size: 0.26rem;text-align: center;color: #fff;}
 
-.restartWrap{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: #030113ff;z-index: 20;opacity: 0;}
+.restartWrap{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: #030113ff;z-index: 20;}
 .restart{width: 6.44rem;margin: 0 auto;}
 .restartLogo{opacity: 0;}
 .restartBtn{width: 50%;margin: 0 auto;background-color: #e32815;margin-top: 0.4rem;opacity: 0;padding: 0.1rem;}
